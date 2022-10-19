@@ -60,3 +60,61 @@ def getProduct(request, pk):
 
     return Response(serializer.data)
 
+
+
+@api_view(['GET'])
+def getOrders(request):
+
+    orderlist = Order.objects.all()
+    
+    serializer =  OrderSerializer(orderlist, many=True)
+
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def getOrder(request,pk):
+
+    order = Order.objects.get(id=pk)
+    
+    serializer =  OrderSerializer(order, many=False)
+
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getOrderItems(request):
+
+    orderitemlist = OrderItem.objects.all()
+    
+    serializer =  OrderSerializer(orderitemlist, many=True)
+
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getOrderItem(request,pk):
+
+    orderitem = OrderItem.objects.get(id=pk)
+    
+    serializer =  OrderSerializer(orderitem, many=True)
+
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def getShippingAddresses(request):
+
+    shipaddress = OrderItem.objects.all()
+    
+    serializer =  ShippingAddressSerializer(shipaddress, many=True)
+
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getShippingAddress(request,pk):
+
+    shipaddress = OrderItem.objects.get(id=pk)
+    
+    serializer =  ShippingAddressSerializer(shipaddress, many=True)
+
+    return Response(serializer.data)
+
