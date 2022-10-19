@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from . models import Product
-from . serializers import ProductSerializer
+from . models import *
+from . serializers import *
 
 
 
@@ -27,6 +27,19 @@ def getRoutes(request):
     ]
 
     return Response(routes)
+
+@api_view(['GET'])
+def getCategories(request):
+    categories = Category.objects.all()
+    serializer =  CategorySerializer(categories, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def getCategory(request,pk):
+    categories = Category.objects.get(id=pk)
+    serializer =  CategorySerializer(categories, many=False)
+    return Response(serializer.data)
 
 @api_view(['GET'])
 def getProducts(request):
