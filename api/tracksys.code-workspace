@@ -1,10 +1,17 @@
 {
 	"folders": [
 		{
-			"path": "../../../../vulnerablesys/brad/tracksys"
+			"name": "intern",
+			"path": "../../.."
 		},
 		{
-			"path": "../../.."
+			"path": "../../../../vulnerablesys/tracksys"
+		},
+		{
+			"path": "../../../../emesco"
+		},
+		{
+			"path": "../../../../liquor/liquorstore"
 		}
 	],
 	"settings": {}
